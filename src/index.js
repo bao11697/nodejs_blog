@@ -1,35 +1,33 @@
 
-const express = require('express')
+const express = require('express');
 const handlebars = require ('express-handlebars');
-const morgan = require('morgan')
-var path = require('path')
-const app = express()
-const port = 3000
+const morgan = require('morgan');
+var path = require('path');
+const app = express();
+const port = 3000;
 
-app.use(express.static(path.join(__dirname,'public')))
+const route = require('./routes/index')
 
-// console.log(path.join(__dirname,'public'))
+app.use(express.static(path.join(__dirname,'public')));
+
+app.use(express.urlencoded({
+  extended : true
+ }))
+app.use(express.json());
+
 // HTTP logger
-app.use(morgan('combined'))  
+// app.use(morgan('combined'))  
 
 //App Template engine handlebars
-// app.engine('handlebars', handlebars.engine({defaultLayout : 'main'}));
-app.engine('hbs', handlebars.engine({extname: '.hbs'}))
+app.engine('hbs', handlebars.engine({extname: '.hbs'}));
 // Đặt ứng dụng express view engine sử đụng handlebars
 app.set('view engine', 'hbs');
 // app.set('views', 'handlebars');
-app.set('views',path.join(__dirname,'resources/views'))
+app.set('views',path.join(__dirname,'resources/views'));
 
-app.get('/', (req, res) => {
-  res.render('home');
-    // return res.send('123')
-})
-
-app.get('/news', (req, res) => {
-  res.render('news');
-    // return res.send('123')
-})
+// Route init
+route(app);
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`Example app listening on port ${port}`);
 })
