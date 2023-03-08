@@ -22,13 +22,13 @@ app.use(express.json());
 //App Template engine handlebars
 app.engine('hbs', handlebars.engine({ extname: '.hbs' }));
 // Đặt ứng dụng express view engine sử đụng handlebars
-app.set("view engine", 'hbs');
+app.set('view engine', 'hbs');
 // app.set('views', 'handlebars');
 app.set('views', path.join(__dirname, 'resources/views'));
 
 // Route init
 route(app);
 
-  app.listen(port, () => {
-              console.log(`Example app listening on port ${port}`);
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`);
 });

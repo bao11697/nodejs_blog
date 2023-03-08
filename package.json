@@ -4,7 +4,7 @@
   "description": "Leann \b\b node js",
   "main": "src/index.js",
   "scripts": {
-    "beauty":"prettier --single-quote --trailing-comma all --tab-width 4 --write src/**/*.{js,json,scss}",
+    "beauty": "prettier --single-quote --trailing-comma all --tab-width 4 --write src/**/*.{js,json,scss}",
     "start": "nodemon --inspect src/index.js",
     "watch": "node-sass --watch src/resources/scss/ --output src/public/css/",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -25,9 +25,8 @@
     "url": "https://github.com/bao11697/nodejs_blog/issues"
   },
   "homepage": "https://github.com/bao11697/nodejs_blog#readme",
-  
   "lint-staged": {
-      "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
+    "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
   },
   "husky": {
     "hook": {
@@ -40,7 +39,7 @@
     "path": "^0.12.7"
   },
   "devDependencies": {
-    "husky": "^8.0.3",
+    "husky": "^4.2.5",
     "lint-staged": "^13.1.2",
     "morgan": "^1.10.0",
     "node-sass": "^8.0.0",
