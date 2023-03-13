@@ -1,0 +1,30 @@
+<div class="mt-4">
+    <h3>Khóa Học Của Tôi</h3>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Tên Khóa Học</th>
+            <th scope="col">Trình Độ</th>
+            <th scope="col">Thời Gian Tạo</th>
+            <th scope="col" colspan="2">Thao Tác</th>
+
+            </tr>
+        </thead >
+        <tbody>
+            {{#each courses}}
+            <tr>
+                {{!-- hàm sm sử dụn template engine support tạo hàm sum truyền đối số sum =index + 1 --}}
+            <th scope="row">{{sum @index 1}}</th>
+            <td>{{this.name}}</td>
+            <td>{{this.level}}</td>
+            <td>{{this.createdAt}}</td>
+            <td>
+                <a href="/courses/{{this._id}}/edit" class="btn btn-link">Sửa</a>
+                <a href="" class="btn btn-link">Xóa</a>
+            </td>
+            </tr>
+           {{/each}}
+        </tbody>
+    </table>
+</div>
