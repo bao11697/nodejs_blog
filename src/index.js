@@ -4,11 +4,11 @@ const morgan = require('morgan');
 const  methodOverride = require('method-override');
 var path = require('path');
 const app = express();
-const port = 4000;
+const port = 5000;
 const db = require('./config/db');
 const route = require('./routes');
 
-// Connect to DB
+// Connect to DB check
 db.connect();
 
 app.use(express.static(path.join(__dirname, 'public')));
